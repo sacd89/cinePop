@@ -1,0 +1,16 @@
+div
+    .row
+        .col-xs-12
+            h5 Cambiar Contraseña Usuario #{user.name}
+        .row
+            form.col.s12(id="show" method="POST" action="/users/savePass")
+                .input-field.col.s12.m6
+                    input(type="hidden", name="_id" id="_id" value=user._id)
+                .input-field.col.s6
+                    input#password(type='password' name="password")
+                    label.active(for='password') Nueva Contraseña
+                .input-field.col.s6
+                    input#ComfirmPassword(type='password' name="confirmPassword")
+                    label.active(for='ComfirmPassword') Confirmar Contraseña
+                .col.s12
+                    input(type="submit" value="Save")

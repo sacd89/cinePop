@@ -1,0 +1,23 @@
+h2 Create User
+
+form.col-xs-12.col-md-8.material-input(method="POST" action="/users/create")
+    .input-field.col.s6
+        input#name(type='text' name="name" value=user.name)
+        label.active(for='name') Nombre
+    .input-field.col.s6
+        input#email(type='text' name="email" value=user.email)
+        label.active(for='email') Correo Electronico
+    select(id="userType" name="userType")
+        each userType in userTypes
+            if userType == user.userType
+                option(value=userType selected="selected") #{userType}
+            else
+                option(value=userType) #{userType}
+    .input-field.col.s6
+        input#password(type='password' name="password")
+        label.active(for='password') Contraseña
+    .input-field.col.s6
+        input#ComfirmPassword(type='password' name="confirmPassword")
+        label.active(for='ComfirmPassword') Confirmar Contraseña
+    .col-xs-12.text-center
+        button.btn.btn-primary(type="submit") Guardar

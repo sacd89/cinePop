@@ -1,0 +1,22 @@
+div
+    a(href="/movies/blank") New
+    table.bordered
+        thead
+            th name
+            th duration
+            th Classification Type
+            th Poster
+        tbody
+            each object in movies
+                tr
+                    td #{object.name}
+                    td #{object.duration} min(s).
+                    td #{object.classificationType}
+                    td
+                        img(src=object.linkPoster)
+                    td
+                        a(href="/movies/show/"+ object._id) Editar
+                    td
+                        form(id="delete"+ object._id method="POST" action="/movies/delete")
+                            input(type="hidden", name="_id" id="_id" value=object._id)
+                            input(type="submit" value="Delete")

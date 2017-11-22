@@ -1,0 +1,21 @@
+div
+    a(href="/functions/blank") New
+    table.bordered
+        thead
+            th movie
+            th language
+            th date
+            th hour
+        tbody
+            each object in functions
+                tr
+                    td #{object.movie.name}
+                    td #{object.language}
+                    td #{object.date}
+                    td #{object.hour}
+                    td
+                        a(href="/functions/show/"+ object._id) Editar
+                    td
+                        form(id="delete"+ object._id method="POST" action="/functions/delete")
+                            input(type="hidden", name="_id" id="_id" value=object._id)
+                            input(type="submit" value="Delete")

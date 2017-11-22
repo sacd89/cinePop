@@ -1,0 +1,23 @@
+h2 Create Function
+
+form.col-xs-12.col-md-8.material-input(method="POST" action="/functions/create")
+    .input-field.col.s6
+        input#date(type='text' name="date" value=function1.date)
+        label.active(for='date') Date
+    .input-field.col.s6
+        input#hour(type='text' name="hour" value=function1.hour)
+        label.active(for='hour') Hour
+    select(id="movie" name="movie")
+        each movie in movies
+            if movie._id == function1.movie
+                option(value=movie._id selected="selected") #{movie.name}
+            else
+                option(value=movie._id) #{movie.name}
+    select(id="languageType" name="languageType")
+        each languageType in languageTypes
+            if languageType == function1.languageType
+                option(value=languageType selected="selected") #{languageType}
+            else
+                option(value=languageType) #{languageType}
+    .col-xs-12.text-center
+        button.btn.btn-primary(type="submit") Guardar

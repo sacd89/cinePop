@@ -1,0 +1,25 @@
+div
+    .row
+        .col-xs-12
+            h5 Editar Movie
+        .row
+            form.col.s12(id="show" method="POST" action="/movies/save")
+                .input-field.col.s6
+                    input#name(type='text' name="name" value=movie.name)
+                    label.active(for='name') Nombre
+                .input-field.col.s6
+                    input#duration(type='number' name="duration" value=movie.duration)
+                    label.active(for='duration') Duracion en Minutos
+                select(id="classificationType" name="classificationType")
+                    each classificationType in classificationTypes
+                        if classificationType == movie.classificationType
+                            option(value=classificationType selected="selected") #{classificationType}
+                        else
+                            option(value=classificationType) #{classificationType}
+                .input-field.col.s6
+                    input#linkPoster(type='text' name="linkPoster" value=movie.linkPoster)
+                    label.active(for='linkPoster') Link Poster
+                .input-field.col.s12.m6
+                    input(type="text", name="_id" id="_id" value=movie._id)
+                .col.s12
+                    input(type="submit" value="Save")

@@ -1,0 +1,28 @@
+div
+    .row
+        .col-xs-12
+            h5 Editar Function
+        .row
+            form.col.s12(id="show" method="POST" action="/functions/save")
+                .input-field.col.s6
+                    input#date(type='text' name="date" value=function1.date)
+                    label.active(for='date') Date
+                .input-field.col.s6
+                    input#hour(type='text' name="hour" value=function1.hour)
+                    label.active(for='hour') Hour
+                select(id="movie" name="movie")
+                    each movie in movies
+                        if movie._id == function1.movie
+                            option(value=movie._id selected="selected") #{movie.name}
+                        else
+                            option(value=movie._id) #{movie.name}
+                select(id="languageType" name="languageType")
+                    each languageType in languageTypes
+                        if languageType == function1.languageType
+                            option(value=languageType selected="selected") #{languageType}
+                        else
+                            option(value=languageType) #{languageType}
+                .input-field.col.s12.m6
+                    input(type="hidden", name="_id" id="_id" value=function1._id)
+                .col.s12
+                    input(type="submit" value="Save")

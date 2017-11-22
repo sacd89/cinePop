@@ -1,0 +1,19 @@
+div
+    a(href="/users/blank") New
+    table
+        thead
+            th name
+            th email
+        tbody
+            each object in users
+                tr
+                    td #{object.name}
+                    td #{object.email}
+                    td
+                        a(href="/users/show/"+ object._id) Editar
+                    td
+                        a(href="/users/changePass/"+ object._id) Editar Contraseña
+                    td
+                        form(id="delete"+ object._id method="POST" action="/users/delete")
+                            input(type="hidden", name="_id" id="_id" value=object._id)
+                            input(type="submit" value="Delete")

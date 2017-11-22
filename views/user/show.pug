@@ -1,0 +1,28 @@
+div
+    .row
+        .col-xs-12
+            h5 Editar Usuario
+        .row
+            form.col.s12(id="show" method="POST" action="/users/save")
+                .input-field.col.s6
+                    input#name(type='text' name="name" value=user.name)
+                    label.active(for='name') Nombre
+                .input-field.col.s6
+                    input#email(type='text' name="email" value=user.email)
+                    label.active(for='email') Correo Electronico
+                .input-field.col.s12.m6
+                    input(type="hidden", name="_id" id="_id" value=user._id)
+                select(id="userType" name="userType")
+                    each userType in userTypes
+                        if userType == user.userType
+                            option(value=userType selected="selected") #{userType}
+                        else
+                            option(value=userType) #{userType}
+                .input-field.col.s6
+                    input#password(type='password' name="password")
+                    label.active(for='password') Nueva Contraseña
+                .input-field.col.s6
+                    input#ComfirmPassword(type='password' name="confirmPassword")
+                    label.active(for='ComfirmPassword') Confirmar Contraseña
+                .col.s12
+                    input(type="submit" value="Save")
